@@ -4,8 +4,7 @@ void main() {
   runApp(MaterialApp(
     home: Scaffold(
       appBar: AppBar(
-        title: Text('Hello'),
-        centerTitle: true,
+        title: Text("Let's see some images"),
       ),
     ),
   ));
