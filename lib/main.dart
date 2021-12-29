@@ -6,16 +6,10 @@ void main() {
   runApp(MaterialApp(
     home: Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('hi there');
-        },
-        child: Text(
-          '+',
-          style: TextStyle(
-            fontSize: 32.0,
-          ),
-        ),
-      ),
+          onPressed: () {
+            print('hi there');
+          },
+          child: Icon(Icons.add)),
       appBar: AppBar(
         title: Text("Let's see some images"),
       ),
