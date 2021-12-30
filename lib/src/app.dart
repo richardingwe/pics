@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' show get;
+import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
 class App extends StatefulWidget {
@@ -12,7 +12,14 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   int counter = 0;
 
-  void fetchImage() {
+  void fetchImage() async {
+    print('hi there');
+    counter += 1;
+    var url = Uri.https('jsonplaceholder.typicode.com', '/photos/$counter');
+    var response = await http.get(url);
+    var jsonResponse =
+        convert.jsonDecode(response.body) as Map<String, dynamic>;
+    print(jsonResponse);
     print('hi there');
   }
 
