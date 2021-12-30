@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
 import 'package:pics/src/models/image_model.dart';
+import 'package:pics/src/widgets/image_list.dart';
 
 class App extends StatefulWidget {
   // const App({ Key? key }) : super(key: key);
@@ -16,7 +17,6 @@ class _AppState extends State<App> {
   List<ImageModel> images = [];
 
   void fetchImage() async {
-    print('hi there');
     counter += 1;
     var url = Uri.https('jsonplaceholder.typicode.com', '/photos/$counter');
     var response = await http.get(url);
@@ -34,7 +34,7 @@ class _AppState extends State<App> {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text('$counter'),
+          child: ImageList(images),
         ),
         floatingActionButton:
             FloatingActionButton(onPressed: fetchImage, child: Icon(Icons.add)),
