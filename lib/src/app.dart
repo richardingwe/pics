@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' show get;
+import 'dart:convert' as convert;
 
 class App extends StatefulWidget {
   // const App({ Key? key }) : super(key: key);
@@ -10,6 +12,10 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   int counter = 0;
 
+  void fetchImage() {
+    print('hi there');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,15 +23,8 @@ class _AppState extends State<App> {
         body: Center(
           child: Text('$counter'),
         ),
-        floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              print('hi there');
-              setState(() {
-                counter++;
-              });
-              print(counter);
-            },
-            child: Icon(Icons.add)),
+        floatingActionButton:
+            FloatingActionButton(onPressed: fetchImage, child: Icon(Icons.add)),
         appBar: AppBar(
           title: Text("Let's see some images"),
         ),
